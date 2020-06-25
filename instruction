@@ -1,0 +1,15 @@
+For Collecting fake/spoofed data:
+
+1. python gather_examples.py --input videos/fake.mp4 --output dataset/fake  --detector face_detector --skip 1
+
+For Collecting Real Data:
+
+2. python gather_examples.py --input videos/real.mov --output dataset/real  --detector face_detector --skip 4
+
+Training liveness detector:
+
+3. python train_liveness.py --dataset dataset --model liveness.model --le le.pickle
+
+Deploying liveness detector to real-time video:
+
+4. python liveness_demo.py --model liveness.model --le le.pickle --detector face_detector
